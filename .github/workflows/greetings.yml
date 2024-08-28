@@ -3,6 +3,7 @@ name: Test Greeting
 on:
   push:
     branches:
+      - main
       - renReal
 
 jobs:
