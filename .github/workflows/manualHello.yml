@@ -1,12 +1,18 @@
-name: Hello World
+name: hello auto
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - epril  
 
 jobs:
-  print-hello-world:
+  your_job_name:
     runs-on: ubuntu-latest
 
-    steps: 
-    - name: Say Hello
-      run: echo "Hello World"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Say hello auto
+        run: echo "working!"
