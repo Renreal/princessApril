@@ -1,14 +1,27 @@
-name: Test Greeting
+name: Greetings
 
 on:
   push:
     branches:
       - main
+      - epril
       - renReal
 
 jobs:
-  test:
+  greeting:
     runs-on: ubuntu-latest
     steps:
-    - name: Check actor
-      run: echo "Hello There @${{ github.actor }}!"
+    - name: Comment on latest commit
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const message = `Hello @${{ github.actor }}! Thanks for your contribution!`;
+          const commitSha = '${{ github.sha }}';
+          
+          // Create a comment on the commit
+          await github.rest.repos.createCommitComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            commit_sha: commitSha,
+            body: message
+          });
