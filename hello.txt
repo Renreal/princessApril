@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+testing greetings
+=======
 hello world testing manual auto update
+>>>>>>> master
