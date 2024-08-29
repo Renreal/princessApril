@@ -3,7 +3,7 @@ name: Post Motivational Comment
 on:
   push:
     branches:
-      - main  
+      - master
       - branch2
    
 
